@@ -1,6 +1,6 @@
 {
     "name": "@nilsonmorais/bs4-forms",
-    "version": "0.0.1",
+    "version": "0.0.13",
     "description": "",
     "main": "index.js",
     "scripts": {
