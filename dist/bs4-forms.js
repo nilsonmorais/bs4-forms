@@ -3,7 +3,7 @@
 /* 
 
 bs4-forms: Bootstrap 4 forms elements created in js.
-Dependencies: lodash, fontawesome, jquery-ui and jquery.
+Dependencies: lodash, fontawesome, jquery-ui, bs4-js and jquery.
 
 
 */
@@ -19,9 +19,9 @@ function Form(options) {
     _Form.options = _.assign(_Form.options, defaults);
     _Form.options = _.assign(_Form.options, options);
 
-    _Form.render = function() {
+    _Form.render = function () {
         _Form.html = $("<form>");
-        _.each(_Form.options.items, function(_i) {
+        _.each(_Form.options.items, function (_i) {
             if (_.has(_i, "type")) {
                 if (_.toLower(_i.type) == "inputtext") {
                     _Form.addInputText(_i);
@@ -29,16 +29,16 @@ function Form(options) {
             }
         })
     };
-    _Form.addInputText = function(_item) {
+    _Form.addInputText = function (_item) {
         var _input = new FormInput(_item);
         _Form.html.append(_input);
     };
-    _Form.addInputEmail = function() {};
-    _Form.addInputPassword = function() {};
-    _Form.addInputTextarea = function() {};
-    _Form.addCheckbox = function() {};
-    _Form.addRadio = function() {};
-    _Form.addSubmitButton = function() {};
+    _Form.addInputEmail = function () { };
+    _Form.addInputPassword = function () { };
+    _Form.addInputTextarea = function () { };
+    _Form.addCheckbox = function () { };
+    _Form.addRadio = function () { };
+    _Form.addSubmitButton = function () { };
 
     _Form.render();
     return _Form.html;
@@ -55,7 +55,7 @@ function FormInput(options) {
         value: ""
     }, options);
 
-    _FormInput.render = function() {
+    _FormInput.render = function () {
         var _html = $("<div>").addClass("form-group");
         var _id = _FormInput.options.id;
 
@@ -93,13 +93,12 @@ function FormSelect(options) {
         items: [],
     }, options);
 
-    _FormSelect.render = function() {
+    _FormSelect.render = function () {
         var _c = new Card();
         _c.html.removeAttr("style");
         if (_.has(_FormSelect.options, "title")) {
-            _c.html.prepend(
-                $("<div>").addClass("card-header").text(_FormSelect.options.title)
-            );
+            this.header = $("<div>").addClass("card-header").text(_FormSelect.options.title);
+            _c.html.prepend(this.header);
         }
 
         // toolbar
@@ -130,29 +129,29 @@ function FormSelect(options) {
         var _form2 = $("<div>").addClass("form-group");
         var _container = $("<div>").addClass("row")
             .append(
-                $("<div>").addClass("col").append(_form1),
-                $("<div>").addClass("col").append(_form2)
+            $("<div>").addClass("col").append(_form1),
+            $("<div>").addClass("col").append(_form2)
             );
 
-        _.each(_FormSelect.options.items, function(_o) {
+        _.each(_FormSelect.options.items, function (_o) {
             var _option = $("<option>").text(_o[_FormSelect.options.label]);
-            _.each(Object.keys(_o), function(_key) {
+            _.each(Object.keys(_o), function (_key) {
                 var _dk = 'data-' + _key;
                 _option.attr(_dk, _o[_key]);
             });
             _select.append(_option);
         });
-        _select.on("change", function(_event) {
+        _select.on("change", function (_event) {
             var _target = _event.target;
             var _selected = _target.options[_target.selectedIndex];
             var _attr = _selected.attributes;
-            _.each(_attr, function(_a) {
+            _.each(_attr, function (_a) {
                 var _attr_name = _a.name;
                 var _attr_value = _a.value;
                 // Criar forms 
             });
         });
-        _c.bodyContainer.append(_container);
+        _c.body.append(_container);
         _FormSelect.html = _c.html;
     };
 
