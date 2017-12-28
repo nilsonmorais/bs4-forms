@@ -8,7 +8,7 @@
 
 # Install
 
-Just include bs4-forms-es6.js (Old browsers) or bs4-forms.js in your html.
+Just include bs4-forms-old.js (Old browsers) or bs4-forms.js in your html.
 
 # Use
 

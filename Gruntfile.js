@@ -16,7 +16,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    "dist/bs4-forms-es6.js": "dist/bs4-forms-es6.js",
+                    "dist/bs4-forms-old.js": "dist/bs4-forms-old.js",
                 }
             }
         },
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                     dest: './dist/',
                     filter: 'isFile',
                     rename: function (dest, src) {
-                        return dest + src.replace('.js', '-es6.js');
+                        return dest + src.replace('.js', '-old.js');
                     }
                 }]
             }
