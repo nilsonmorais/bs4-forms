@@ -27,11 +27,11 @@ class Form {
     }
     addInputText(_item) {
         let _input = new FormInput(_item);
-        this.html.append(_input);
+        this.html.append(_input.html);
     }
     addLabel(_item) {
         let _label = new FormLabel(_item);
-        this.html.append(_label);
+        this.html.append(_label.html);
     }
     addInputEmail() { }
     addInputPassword() { }

@@ -38,13 +38,13 @@ var Form = function () {
         key: "addInputText",
         value: function addInputText(_item) {
             var _input = new FormInput(_item);
-            this.html.append(_input);
+            this.html.append(_input.html);
         }
     }, {
         key: "addLabel",
         value: function addLabel(_item) {
             var _label = new FormLabel(_item);
-            this.html.append(_label);
+            this.html.append(_label.html);
         }
     }, {
         key: "addInputEmail",
