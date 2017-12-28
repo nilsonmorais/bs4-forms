@@ -11,7 +11,7 @@
 Just include bs4-forms-old.js (Old browsers) or bs4-forms.js in your html.
 
 # Use
-
+```
 f = new Form({
     items: [
         {
@@ -29,3 +29,4 @@ f = new Form({
 });
 
 $("body").append(f.html);
+```
